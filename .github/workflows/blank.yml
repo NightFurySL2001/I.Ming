@@ -4,40 +4,13 @@ name: Make Compatibility Font
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "master" ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_track_files:
-    runs-on: 'ubuntu-20.04'
-    # Declare outputs for next jobs
-    outputs:
-      docs_changed: ${{ steps.list_cp_files.outputs.file_list }}
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        # Checkout as many commits as needed for the diff
-        fetch-depth: 2
-    - shell: pwsh
-      id: list_cp_files
-      run: |
-        # Diff HEAD with the previous commit
-        $diff = git ls-tree --full-tree --name-only -r HEAD
-
-        # Check if a file under docs/ or with the .md extension has changed (added, modified, deleted)
-        $SourceCP = $diff | Where-Object { $_ -match '.*/I\.MingCP.*' -or $_ -match '.*/I\.MingVarCP.*' }
-
-        # Set the output named "docs_changed"
-        Write-Host "::set-output name=file_list::$SourceCP"
-    
   # This workflow contains a single job called "build"
   build:
-    needs: [ build_track_files ]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -55,6 +28,4 @@ jobs:
       - shell: bash
         id: py
         name: Execute Python
-        env:
-          INPUT_PATH: ${{ needs.build_track_files.outputs.file_list }}
         run: python .github/workflows/main.py
