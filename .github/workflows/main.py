@@ -1,12 +1,12 @@
 import os
 import sys
 
-RENAME_LIST_EN = {
+RENAME_LIST_EN = [
     ["I.MingCP", "PMing.I"],
     ["I.MingCP", "I.MingU"],
     ["I.MingVarCP", "PMingVar.I"],
     ["I.MingVarCP", "I.MingVarU"],
-}
+]
 
 
 def main():
