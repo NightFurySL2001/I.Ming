@@ -57,4 +57,4 @@ jobs:
         name: Execute Python
         env:
           INPUT_PATH: ${{ needs.build_track_files.outputs.file_list }}
-        run: python ${{ github.action_path }}/main.py
+        run: python .github/workflows/main.py
