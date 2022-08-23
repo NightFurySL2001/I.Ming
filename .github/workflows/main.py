@@ -1,12 +1,10 @@
 import os
 import sys
 
-RENAME_LIST_EN = [
-    ["I.MingCP", "PMing.I"],
-    ["I.MingCP", "I.MingU"],
-    ["I.MingVarCP", "PMingVar.I"],
-    ["I.MingVarCP", "I.MingVarU"],
-]
+RENAME_LIST_EN = {
+    "I.MingCP": ["PMing.I", "I.MingU"],
+    "I.MingVarCP": ["PMingVar.I", "I.MingVarU"],
+}
 
 
 def main():
@@ -20,7 +18,7 @@ def main():
                 # loop through changing name
                 for orig, new in RENAME_LIST_EN:
                     # if file does not exist
-                    if not os.path.exists(os.path.join(root, name.replace(orig, new))):
+                    if not os.path.exists(os.path.join(root, name.replace(orig, new[0]))):
                         # add file into list of files to be convert
                         file_list.append(os.path.join(root, name))
                
