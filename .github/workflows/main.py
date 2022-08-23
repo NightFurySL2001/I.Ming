@@ -16,9 +16,9 @@ def main():
             # if name
             if "I.MingCP" in name or "I.MingVarCP" in name:
                 # loop through changing name
-                for orig, new in RENAME_LIST_EN:
+                for orig in RENAME_LIST_EN:
                     # if file does not exist
-                    if not os.path.exists(os.path.join(root, name.replace(orig, new[0]))):
+                    if not os.path.exists(os.path.join(root, name.replace(orig, RENAME_LIST_EN[orig][0]))) or not os.path.exists(os.path.join(root, name.replace(orig, RENAME_LIST_EN[orig][1]))):
                         # add file into list of files to be convert
                         file_list.append(os.path.join(root, name))
                
