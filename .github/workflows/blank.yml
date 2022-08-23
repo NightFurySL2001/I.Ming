@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Make Compatibility Font
 
 # Controls when the workflow will run
 on:
@@ -57,4 +57,4 @@ jobs:
         name: Execute Python
         env:
           INPUT_PATH: ${{ needs.build_track_files.outputs.file_list }}
-        run: py ${{ github.action_path }}/main.py
+        run: python ${{ github.action_path }}/main.py
