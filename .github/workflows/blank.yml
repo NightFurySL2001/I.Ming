@@ -46,5 +46,5 @@ jobs:
           git add .
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "Convert compatibility font files"
-            git push origin main
+            git push
           fi
