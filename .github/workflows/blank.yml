@@ -36,7 +36,7 @@ jobs:
           export target_dir=$(ls -d */ | cut -f1 -d'/' | sort -V | tail -n1)
           # call the build script
           for f in "$target_dir"/I.Ming*CP-*.ttf; do
-            python3 .github/workflows/i-mingliu-converter-2048.py "$f"
+            python3 .github/workflows/converter.py "$f"
           done
 
       - name: Upload
