@@ -59,12 +59,12 @@ NAME_LIST_LOCALIZE = {
     "I.MingVarCP": "一點明體異體CP",
 }
 RENAME_LIST_EN = {
-    "I.MingCP": "PCMing.I",
-    "I.MingVarCP": "PCMingVar.I",
+    "I.MingCP": "PMingI.U",
+    "I.MingVarCP": "PMingI.UVar",
 }
 RENAME_LIST_ZHT = {
-    "一點明體CP": "新明體點一",
-    "一點明體異體CP": "新明體異體點一",
+    "一點明體CP": "新一細明體",
+    "一點明體異體CP": "新一細明體異體",
 }
 
 
@@ -119,3 +119,4 @@ if not os.path.exists(os.path.join(dir_path, subfolder)):
 final_path = os.path.join(dir_path, subfolder, final_filename)
 font.save(final_path)
 print("導出完成，文件名：" + final_path)
+input("按Enter以退出。")
