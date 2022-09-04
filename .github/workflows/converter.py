@@ -119,4 +119,3 @@ if not os.path.exists(os.path.join(dir_path, subfolder)):
 final_path = os.path.join(dir_path, subfolder, final_filename)
 font.save(final_path)
 print("導出完成，文件名：" + final_path)
-input("按Enter以退出。")
